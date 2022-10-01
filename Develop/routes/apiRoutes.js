@@ -1,23 +1,23 @@
 const router = require('express').Router();
-const notesRoutes = require('./notes_html');
-const notes = require('../../db/db.json');
+const notes = require('../db/db.json');
 
 const {
     newNoteTaken, deleteNoteTaken
-} = require('../../lib/noteTakerFunction');
+} = require('../lib/noteTakerFunction');
 
-router.use(notesRoutes);
 
-router.get('/notes', (req, res) => {
+router.get('/api/notes', (req, res) => {
     let save = notes;
     res.json(save);
 })
-router.post('notes', (req, res) => {
+router.post('/api/notes', (req, res) => {
+    console.log(req.body);
     req.body.id = notes.length.toString();
     let note = newNoteTaken(req.body, notes);
     res.json(note);
 })
-router.delete('/notes/:id', (req, res) => {
+router.delete('/api/notes/:id', (req, res) => {
+    console.log(req.params.id);
     deleteNoteTaken(notes, req.params.id);
     res.json(notes);
 })
