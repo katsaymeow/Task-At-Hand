@@ -13,6 +13,6 @@ app.use(apiRoutes);
 app.use(htmlRoutes);
 
 app.listen(PORT, () => {
-    console.log(`Server is now on port ${PORT}.`)
+    console.log(`Server is now listening on port http://localhost:${PORT}.`)
 });
 
