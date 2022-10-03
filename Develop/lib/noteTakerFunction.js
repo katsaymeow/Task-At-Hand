@@ -9,7 +9,7 @@ function newNoteTaken(newNoteText, noteString) {
             notes: noteString
         })
     )
-    return newNoteText
+    return newNoteText;
 };
 
 function deleteNoteTaken(notes, id) {

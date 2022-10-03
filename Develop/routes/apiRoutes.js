@@ -12,7 +12,7 @@ router.get('/api/notes', (req, res) => {
 })
 router.post('/api/notes', (req, res) => {
     console.log(req.body);
-    req.body.id = notes.length.toString();
+    req.body.id = notes.length;
     let note = newNoteTaken(req.body, notes);
     res.json(note);
 })
