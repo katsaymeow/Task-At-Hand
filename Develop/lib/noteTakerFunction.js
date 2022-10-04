@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-
+// I am not sure this is working correctly. These functions check the strings to write or to delete by a unqiue id. 
 function newNoteTaken(newNoteText, noteString) {
     noteString.push(newNoteText);
     fs.writeFileSync(
@@ -12,13 +12,20 @@ function newNoteTaken(newNoteText, noteString) {
     return newNoteText;
 };
 
-function deleteNoteTaken(notes, id) {
-    
-//     DELETE /api/notes/:id should receive a query parameter that contains the id of a note to delete. To delete a note, you'll need to read all notes from the db.json file, remove the note with the given id property, and then rewrite the notes to the db.json file.
-// }
+function deleteNoteTaken(noteString, id) {
+    let deleteNote = parseInt(id);
+    noteString.slpice(deleteNote, 1);
+    for(let i = deleteNote; i < noteString.length; i++){
+        noteString[i].id = i.toString();
+    };
+    fs.writeFileSync(
+        path.join(__dirname, '../db/db.json'),
+        JSON.stringify({
+            notes: noteString
+        })
+    )
 }
 module.exports = {
     newNoteTaken,
     deleteNoteTaken
-}
-//method all notes just the one that matches the id just that one. filter().array. 
+};
