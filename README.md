@@ -1,5 +1,5 @@
 
-# Note Tasker with Express.js
+# Note Taker with Express.js
 
 *****
   
@@ -38,7 +38,7 @@ Lindsay Allen
 
 *****
 ## Questions
-Please feel free to reach out with anyquestions with a pull request. 
+Please feel free to reach out with any questions with a pull request. 
 
 *****
 ## Sources
